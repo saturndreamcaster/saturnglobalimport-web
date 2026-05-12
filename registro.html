@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - GlobalImport S.A.</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la página de registro */
+        .registro-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: var(--light-bg);
+        }
+
+        .registro-wrapper {
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .registro-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .registro-header h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .registro-header p {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .registro-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .registro-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: var(--primary-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .registro-wrapper {
+                padding: 25px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .registro-header h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>GlobalImport S.A.</h1>
+                <p class="tagline">Confianza y Eficiencia en tu Puerta</p>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="registro.html" class="registro-btn">Registro</a></li>
+                    <li><a href="#" class="carrito">🛒 Carrito</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenedor de Registro -->
+    <div class="registro-container">
+        <div class="registro-wrapper">
+            <a href="index.html" class="back-link">← Volver al inicio</a>
+            
+            <div class="registro-header">
+                <h2>Crear Cuenta</h2>
+                <p>Únete a GlobalImport S.A. y disfruta de beneficios exclusivos</p>
+            </div>
+
+            <form id="registroForm">
+                <!-- Nombres -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido *</label>
+                        <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+
+                <!-- Teléfono y RUT -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="+56 9 XXXX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="rut">RUT/Documento *</label>
+                        <input type="text" id="rut" name="rut" required placeholder="XX.XXX.XXX-X">
+                    </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="form-group">
+                    <label for="direccion">Dirección *</label>
+                    <input type="text" id="direccion" name="direccion" required placeholder="Calle, número y ciudad">
+                </div>
+
+                <!-- Ciudad y Región -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad *</label>
+                        <input type="text" id="ciudad" name="ciudad" required placeholder="Tu ciudad">
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Región *</label>
+                        <select id="region" name="region" required>
+                            <option value="">Selecciona una región</option>
+                            <option value="arica-parinacota">Arica y Parinacota</option>
+                            <option value="tarapaca">Tarapacá</option>
+                            <option value="antofagasta">Antofagasta</option>
+                            <option value="atacama">Atacama</option>
+                            <option value="coquimbo">Coquimbo</option>
+                            <option value="valparaiso">Valparaíso</option>
+                            <option value="metropolitana">Metropolitana de Santiago</option>
+                            <option value="ohiggins">O'Higgins</option>
+                            <option value="maule">Maule</option>
+                            <option value="nuble">Ñuble</option>
+                            <option value="biobio">Biobío</option>
+                            <option value="araucania">Araucanía</option>
+                            <option value="losrios">Los Ríos</option>
+                            <option value="loslagos">Los Lagos</option>
+                            <option value="aysen">Aysén</option>
+                            <option value="magallanes">Magallanes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="form-group">
+                    <label for="password">Contraseña *</label>
+                    <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres">
+                </div>
+
+                <!-- Confirmar Contraseña -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Contraseña *</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Repite tu contraseña">
+                </div>
+
+                <!-- Tipo de Cliente -->
+                <div class="form-group">
+                    <label for="tipoCliente">Tipo de Cliente *</label>
+                    <select id="tipoCliente" name="tipoCliente" required>
+                        <option value="">Selecciona un tipo de cliente</option>
+                        <option value="particular">Persona Natural (Comprador)</option>
+                        <option value="empresa">Empresa/Negocio</option>
+                        <option value="mayorista">Distribuidor Mayorista</option>
+                    </select>
+                </div>
+
+                <!-- Términos y Condiciones -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <label for="terminos">Acepto los <a href="#" style="color: var(--secondary-color); text-decoration: underline;">términos y condiciones</a> *</label>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter" checked>
+                    <label for="newsletter">Deseo recibir ofertas y novedades de GlobalImport S.A.</label>
+                </div>
+
+                <!-- Botón Registrar -->
+                <button type="submit" class="registro-btn">Crear Mi Cuenta</button>
+
+                <!-- Link Login -->
+                <div class="login-link">
+                    ¿Ya tienes cuenta? <a href="#">Inicia sesión aquí</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>GlobalImport S.A.</h4>
+                <p>Tu empresa de confianza para distribución de productos internacionales</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📧 info@globalimport.com</p>
+                <p>📱 +56 2 1234 5678</p>
+                <p>📍 Dirección, Santiago, Chile</p>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GlobalImport S.A. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Validación del formulario
+        document.getElementById('registroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden. Por favor, intenta de nuevo.');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('La contraseña debe tener al menos 8 caracteres.');
+                return;
+            }
+            
+            alert('¡Registro exitoso! Bienvenido a GlobalImport S.A.');
+            // Aquí iría la lógica para enviar los datos al servidor
+        });
+    </script>
+</body>
+</html>
